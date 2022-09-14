@@ -16,6 +16,19 @@
             "problemMatcher": [],
             "group": {
                 "kind": "build",
+            }
+        },
+        {
+            "type": "shell",
+            "label": "make",
+            "command": "mingw32-make",
+            "args": [],
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
                 "isDefault": true
             }
         }

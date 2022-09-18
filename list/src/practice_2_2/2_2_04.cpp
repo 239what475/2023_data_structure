@@ -3,10 +3,10 @@
 
 namespace practice_2_2
 {
-    using namespace list;
 
     namespace p_04
     {
+        using namespace list;
         using std::cout;
         using std::endl;
 
@@ -18,16 +18,16 @@ namespace practice_2_2
             int num = 0;
             int i = 0;
 
-            for (; i < l.length && l.data[i] < s; i++)
+            for (; i < l.length() && l.data[i] < s; i++)
                 ;
 
-            for (; i < l.length && l.data[i] <= t; i++)
+            for (; i < l.length() && l.data[i] <= t; i++)
                 num++;
 
-            for (; i < l.length; i++)
+            for (; i < l.length(); i++)
                 l.data[i - num] = l.data[i];
 
-            l.length -= num;
+            l.length() -= num;
             return true;
         }
     } // namespace p_04
@@ -35,13 +35,13 @@ namespace practice_2_2
     void practice_04()
     {
         using namespace p_04;
-        SqList<int> l;
-        l.addAll((const int[]){1, 2, 3, 4, 5}, 5);
-        l.print();
+        auto l = SqList<int>((const int[]){1, 2, 3, 4, 5}, 5);
+        cout << l << endl;
+
         if (delete_between_s_t_order(l, 2, 3))
         {
-            cout << "delete num between 2 and 3" << endl;
-            l.print();
+            cout << "delete num between 2 and 3" << endl
+                 << l << endl;
         }
     }
 

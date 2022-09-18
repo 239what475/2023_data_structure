@@ -3,16 +3,16 @@
 
 namespace practice_2_2
 {
-    using namespace list;
 
     namespace p_09
     {
+        using namespace list;
         using std::cout;
         using std::endl;
 
         bool find(SqList<int> &l, int x)
         {
-            int start = 0, end = l.length - 1, mid;
+            int start = 0, end = l.length() - 1, mid;
             while (start < end && end - start != 1)
             {
                 mid = (start + end) / 2;
@@ -33,12 +33,12 @@ namespace practice_2_2
             }
             else
             {
-                for (int i = l.length; i > end; i--)
+                for (int i = l.length(); i > end; i--)
                 {
                     l.data[i] = l.data[i - 1];
                 }
                 l.data[end] = x;
-                l.length++;
+                l.length()++;
             }
 
             // better:
@@ -53,19 +53,19 @@ namespace practice_2_2
             //     else
             //         end = mid - 1;
             // }
-            // if (l.data[mid] == x && mid != l.length - 1)
+            // if (l.data[mid] == x && mid != l.length() - 1)
             // {
             //     l.data[mid] = l.data[mid + 1];
             //     l.data[mid + 1] = x;
             // }
             // else if (start > end)
             // {
-            //     for (int i = l.length; i > end; i--)
+            //     for (int i = l.length(); i > end; i--)
             //     {
             //         l.data[i] = l.data[i - 1];
             //     }
             //     l.data[end] = x;
-            //     l.length++;
+            //     l.length()++;
             // }
 
             return true;
@@ -75,13 +75,12 @@ namespace practice_2_2
     void practice_09()
     {
         using namespace p_09;
-        SqList<int> l;
-        l.addAll((const int[]){1, 2, 3, 4, 7, 8, 9}, 7);
-        l.print();
+        auto l = SqList<int>((const int[]){1, 2, 3, 4, 7, 8, 9}, 7);
+        cout << l << endl;
         if (find(l, 5))
         {
-            cout << "find 5" << endl;
-            l.print();
+            cout << "find 5" << endl
+                 << l << endl;
         }
         else
         {

@@ -3,10 +3,9 @@
 
 namespace practice_2_2
 {
-    using namespace list;
-
     namespace p_05
     {
+        using namespace list;
         using std::cout;
         using std::endl;
 
@@ -16,7 +15,7 @@ namespace practice_2_2
                 return false;
 
             int num = 0;
-            for (int i = 0; i < l.length; i++)
+            for (int i = 0; i < l.length(); i++)
             {
                 if (l.data[i] >= s && l.data[i] <= t)
                 {
@@ -27,7 +26,7 @@ namespace practice_2_2
                     l.data[i - num] = l.data[i];
                 }
             }
-            l.length -= num;
+            l.length() -= num;
             return true;
         }
     } // namespace p_04
@@ -35,11 +34,10 @@ namespace practice_2_2
     void practice_05()
     {
         using namespace p_05;
-        SqList<int> l;
-        l.addAll((const int[]){1, 2, 3, 1, 4}, 5);
-        l.print();
+        auto l = SqList<int>((const int[]){1, 2, 3, 1, 4}, 5);
+        cout << l << endl;
         delete_between_s_t(l, 1, 3);
-        l.print();
+        cout << l << endl;
     }
 
 } // namespace practice_2_2

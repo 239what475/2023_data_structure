@@ -3,10 +3,9 @@
 
 namespace practice_2_2
 {
-    using namespace list;
-
     namespace p_06
     {
+        using namespace list;
         using std::cout;
         using std::endl;
 
@@ -18,7 +17,7 @@ namespace practice_2_2
             int pre = l.data[0];
             int repeat = 0;
 
-            for (int i = 1; i < l.length; i++)
+            for (int i = 1; i < l.length(); i++)
             {
                 if (l.data[i] == pre)
                     repeat++;
@@ -27,7 +26,7 @@ namespace practice_2_2
 
                 l.data[i - repeat] = l.data[i];
             }
-            l.length -= repeat;
+            l.length() -= repeat;
 
             // int i, j;
             // for (i = 0, j = 1; j < l.length; j++)
@@ -42,15 +41,14 @@ namespace practice_2_2
     void practice_06()
     {
         using namespace p_06;
-        SqList<int> l;
-        l.addAll((const int[]){1, 2, 2, 2, 2, 3, 3, 3, 4, 4, 5}, 11);
-        l.print();
+        auto l = SqList<int>((const int[]){1, 2, 2, 2, 2, 3, 3, 3, 4, 4, 5}, 11);
+        cout << l << endl;
+
         if (delete_repeat(l))
         {
-            cout << "delete repeat num" << endl;
+            cout << "delete repeat num" << endl
+                 << l << endl;
         }
-
-        l.print();
     }
 
 } // namespace practice_2_2

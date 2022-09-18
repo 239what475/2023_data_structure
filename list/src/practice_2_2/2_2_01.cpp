@@ -3,10 +3,10 @@
 
 namespace practice_2_2
 {
-    using namespace list;
 
     namespace p_01
     {
+        using namespace list;
         using std::cout;
         using std::endl;
 
@@ -19,7 +19,7 @@ namespace practice_2_2
             int index = 0;
 
             // find index and value of minnium element by comparison
-            for (int i = 1; i < l.length; i++)
+            for (int i = 1; i < l.length(); i++)
             {
                 if (min > l.data[i])
                 {
@@ -29,8 +29,8 @@ namespace practice_2_2
             }
 
             e = min;
-            l.data[index] = l.data[l.length - 1];
-            l.length--;
+            l.data[index] = l.data[l.length() - 1];
+            l.length()--;
 
             return true;
         }
@@ -39,15 +39,14 @@ namespace practice_2_2
     void practice_01()
     {
         using namespace p_01;
-        SqList<int> l;
-        l.addAll((const int[]){3, 2, 1, 4}, 4);
-        l.print();
+        auto l = SqList<int>((const int[]){3, 2, 1, 4}, 4);
+        cout << l << endl;
 
         int e;
         if (delete_min(l, e))
         {
-            cout << "min element : " << e << endl;
-            l.print();
+            cout << "min element : " << e << endl
+                 << l << endl;
         }
         else
         {

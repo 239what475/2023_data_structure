@@ -3,10 +3,9 @@
 
 namespace practice_2_2
 {
-    using namespace list;
-
     namespace p_14
     {
+        using namespace list;
         using std::cout;
         using std::endl;
 
@@ -32,7 +31,7 @@ namespace practice_2_2
             int i, j, k, min_d, d;
             min_d = 0x7fffffff;
             i = j = k = 0;
-            while (i < l1.length && j < l2.length && k < l3.length)
+            while (i < l1.length() && j < l2.length() && k < l3.length())
             {
                 d = abs(l1.data[i] - l2.data[j]) + abs(l2.data[j] - l3.data[k]) + abs(l3.data[k] - l1.data[i]);
                 if (d < min_d)
@@ -52,17 +51,15 @@ namespace practice_2_2
     void practice_14()
     {
         using namespace p_14;
-        SqList<int> l1;
-        l1.addAll((const int[]){-1, 0, 9}, 3);
-        l1.print();
+        auto l1 = SqList<int>((const int[]){-1, 0, 9}, 3);
+        cout << l1 << endl;
 
-        SqList<int> l2;
-        l2.addAll((const int[]){-25, -10, 10, 11}, 4);
-        l2.print();
+        auto l2 = SqList<int>((const int[]){-25, -10, 10, 11}, 4);
+        cout << l2 << endl;
 
-        SqList<int> l3;
-        l3.addAll((const int[]){2, 9, 17, 30, 41}, 5);
-        l3.print();
+        auto l3 = SqList<int>((const int[]){2, 9, 17, 30, 41}, 5);
+        cout << l3 << endl;
+
         cout << "find min distance:" << find_min_distance(l1, l2, l3) << endl;
     }
 

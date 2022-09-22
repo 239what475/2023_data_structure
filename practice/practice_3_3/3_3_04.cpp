@@ -77,6 +77,6 @@ namespace practice_3_3
         embark();
         outputAndClearEmbarkQueue();
         cout << "q1: " << q1 << endl
-             << "q2" << q2 << endl;
+             << "q2: " << q2 << endl;
     }
 } // namespace practice_3_3
